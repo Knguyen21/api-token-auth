@@ -1,18 +1,35 @@
 #!/bin/bash
 
-EMAIL=
-PASSWORD=
+EMAIL='me@me.com'
+PASSWORD='abc'
 
-BASE_URL="http://localhost:3000"
+BASE_URL="http://10.13.105.91:3000"
 URL="${BASE_URL}/sign-in"
 
 url() {
+  CONTENT_TYPE="application/x-www-form-urlencoded"
 
+  curl ${URL}\
+  --silent \
+  --request POST \
+  --header "Content-Type: ${CONTENT_TYPE}" \
+  --data-urlencoded "crendentials[email]=${EMAIL}"\
+  --data-urlencoded "crendentials[password]=${PASSWORD}"
 }
 
 json() {
-
   CONTENT_TYPE="application/json"
+
+  curl ${URL}\
+  --include \
+  --request POST \
+  --header "Content-Type: ${CONTENT_TYPE}" \
+  --data "{
+      \"credentials\": {
+      \"email\": \"${EMAIL}\",
+      \"password\": \"${PASSWORD}\"
+    }
+  }"
 
 }
 

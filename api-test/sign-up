@@ -1,15 +1,22 @@
 #!/bin/bash
+#shell script
+EMAIL=abc@me.com
+PASSWORD=123
 
-EMAIL=
-PASSWORD=
-
-BASE_URL="http://localhost:3000"
-#URL="${BASE_URL}/sign-up"
-URL="http://httpbin.org/post"
+BASE_URL="10.13.105.91:3000"
+URL="${BASE_URL}/sign-up"
+#URL="http://httpbin.org/post"
 
 url() {
 
   CONTENT_TYPE="application/x-www-form-urlencoded"
+
+  curl ${URL} \
+   --include \
+   --request POST \
+   --header "Content-Type: ${CONTENT_TYPE}" \
+   --data-urlencode "credentials[email]=${EMAIL}" \
+   --data-urlencode "credentials[password]=${PASSWORD}"
 
 }
 
@@ -29,6 +36,8 @@ json() {
   }"
 
 }
+
+
 
 json
 

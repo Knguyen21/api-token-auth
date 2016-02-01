@@ -1,11 +1,15 @@
 #!/bin/bash
 
-TOKEN=
-USER_ID=
+TOKEN="4fd82277cd0defc2911739d530f9fd0f"
+USER_ID='61'
 
-BASE_URL="http://localhost:3000"
-URL="${BASE_URL}/sign-out"
+BASE_URL="http://10.13.105.91:3000"
+URL="${BASE_URL}/sign-out/${USER_ID}"
 
+curl ${URL}\
+--include \
+--request DELETE \
+--header "Authorization: Token token=${TOKEN}"
 
 # data output from curl doesn't have a trailing newline
 echo

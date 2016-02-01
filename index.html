@@ -14,6 +14,30 @@
         </label>
         <input type="submit" name="submit" value="Sign Up">
       </form>
+      <form id="sign-in">
+        <p>Sign In!</p>
+        <label>E-mail
+          <input type="text" name="credentials[email]" value="abc@me.com">
+        </label>
+        <label>Password
+          <input type="password" name="credentials[password]" value="123">
+        </label>
+        <input type="submit" name="submit" value="Sign In">
+      </form>
+
+
+      <form id="change-password">
+        <p>Change Password!</p>
+        <label>Old Password
+          <input type="text" name="password[old]" value="123">
+        </label>
+        <label>New Password
+          <input type="text" name="password[new]" value="abc">
+        </label>
+        <input type="submit" name="submit" value="change password">
+      </form>
+
+
       <script src="http://localhost:8080/webpack-dev-server.js"></script>
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8"></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
